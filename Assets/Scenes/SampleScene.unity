@@ -392,8 +392,8 @@ GameObject:
   - component: {fileID: 1000417149}
   - component: {fileID: 1000417148}
   - component: {fileID: 1000417150}
-  - component: {fileID: 1000417151}
   - component: {fileID: 1000417152}
+  - component: {fileID: 1000417153}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -451,22 +451,6 @@ MonoBehaviour:
       m_Calls: []
   m_PlanePrefab: {fileID: 1528555169958527391, guid: 24d3143644fc86540a3b82fe44fc1542, type: 3}
   m_DetectionMode: -1
---- !u!114 &1000417151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000417147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 380fd4b8d06de4748baff3607be56ac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnObjectList:
-  - {fileID: 2931794682887212364, guid: 0369d523b962dd24f92d38de1c6efd65, type: 3}
-  chanceToSuccessfullySpawn: 25
-  maxSpawn: 5
 --- !u!114 &1000417152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +467,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_RaycastPrefab: {fileID: 0}
+--- !u!114 &1000417153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000417147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 380fd4b8d06de4748baff3607be56ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnObjectList:
+  - {fileID: 2931794682887212364, guid: 0369d523b962dd24f92d38de1c6efd65, type: 3}
+  chanceToSpawn: 10
+  minPlaneSizeXToSpawn: 1
+  minPlaneSizeYToSpawn: 1
 --- !u!1 &1239904909
 GameObject:
   m_ObjectHideFlags: 0
