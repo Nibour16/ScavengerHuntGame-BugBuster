@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bug : BaseInteractable
 {
-    [SerializeField] protected BugStat bugStat;
+    [SerializeField] protected Stat bugStat;
 
     protected GameManager gameManager;
     
@@ -11,15 +11,20 @@ public class Bug : BaseInteractable
         gameManager = GameManager.Instance;
     }
 
-    public override void OnInteract()
+    public override void OnInteract(Vector3 interactPosition)
     {
         if (gameManager == null)
         {
             Debug.Log("gameManager is null");
             return;
         }
-        gameManager.AddScore(bugStat.score);
-        Debug.Log(gameManager.score);
         Destroy(gameObject);
+    }
+
+    protected override void OnDestroy()
+    {
+        gameManager.AddScore(bugStat.value);
+        Debug.Log(gameManager.score);
+        base.OnDestroy();
     }
 }

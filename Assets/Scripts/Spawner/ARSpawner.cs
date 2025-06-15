@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
 public class ARSpawner : BaseSpawner
 {
@@ -8,21 +10,13 @@ public class ARSpawner : BaseSpawner
 
     private float _spawnChance;
 
-    [Obsolete("planesChanged (Why is it obsolete?)")]
-    #pragma warning disable CS0809 // Obsolete member overrides non-obsolete member (or what else can I do for assigning specific one as obsolete)
-    protected override void Start()
-    #pragma warning restore CS0809 // Obsolete member overrides non-obsolete member (or what else can I do for assigning specific one as obsolete)
+    private void Update()
     {
-        base.Start();
-        if (_arPlaneManager != null)
-            _arPlaneManager.planesChanged += OnPlanesChanged;
-    }
-
-    [Obsolete("ARPlanesChangedEventArgs (Why is it obsolete?)")]
-    private void OnPlanesChanged(ARPlanesChangedEventArgs args)
-    {
-        foreach (ARPlane plane in args.added)
-            SpawnObject(plane);
+        foreach (ARPlane plane in _arPlaneManager.trackables)
+        {
+            if (plane.trackingState == TrackingState.Tracking)
+                SpawnObject(plane);
+        }  
     }
 
     private void SpawnObject(ARPlane plane)
@@ -37,13 +31,5 @@ public class ARSpawner : BaseSpawner
                 Quaternion.Euler(plane.transform.rotation.x, UnityEngine.Random.Range(-180, 180), plane.transform.rotation.z)
             );
         }
-    }
-
-    [Obsolete("planesChanged (Why is it obsolete?)")]
-    private void OnDestroy()
-    {
-        // Unsubscribe to avoid memory leaks
-        if (_arPlaneManager != null)
-            _arPlaneManager.planesChanged -= OnPlanesChanged;
     }
 }

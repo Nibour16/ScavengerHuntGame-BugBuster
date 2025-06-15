@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 931b0f0b236c3ce4fbb3e782e3a22c30, type: 3}
-  m_Name: FlyStat
+  m_Name: ScoreBuffStat
   m_EditorClassIdentifier: 
-  value: 25
-  rarity: 75
+  value: 0.5
+  rarity: 25

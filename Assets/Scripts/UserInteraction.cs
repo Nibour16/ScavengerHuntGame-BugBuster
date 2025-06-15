@@ -15,16 +15,16 @@ public class UserInteraction : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
 
             if (Physics.Raycast(ray, out RaycastHit hit, interactDistance))
-                Interact(hit);
+                Interact(hit, Input.GetTouch(0).position);
         }
     }
 
-    protected void Interact(RaycastHit hit)
+    protected void Interact(RaycastHit hit, Vector3 interactPosition)
     {
         if (hit.collider.gameObject.TryGetComponent<IInteractable>(out var iInteractable))  //If the interacted object has connected to the interface IInteractable
         {
             //Run the interact method, depending on the object's job.
-            iInteractable.OnInteract();
+            iInteractable.OnInteract(interactPosition);
         }
     }
 }

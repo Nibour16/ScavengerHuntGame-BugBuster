@@ -1,4 +1,6 @@
+using UnityEngine;
+
 interface IInteractable
 {
-    void OnInteract();
+    void OnInteract(Vector3 interactPosition);
 }

@@ -15,6 +15,6 @@ public class InteractTest : UserInteraction
 
         // Check if the ray hits an object with a collider
         if (Physics.Raycast(ray, out RaycastHit hit, interactDistance))
-            Interact(hit);
+            Interact(hit, Input.mousePosition);
     }
 }

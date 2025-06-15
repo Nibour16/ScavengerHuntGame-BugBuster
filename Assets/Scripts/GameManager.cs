@@ -4,8 +4,6 @@ using UnityEngine.XR.ARFoundation;
 
 public class GameManager : MonoBehaviour
 {
-    [NonSerialized] public float score;
-
     private static GameManager _instance;
 
     #region Instance Setup
@@ -30,13 +28,17 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    [NonSerialized] public int score;
+    [NonSerialized] public float buffedScoreIncrement;
+
     private void Start()
     {
         score = 0;
+        buffedScoreIncrement = 0;
     }
 
     public void AddScore(float addedScore)
     {
-        score += addedScore;
+        score += Mathf.RoundToInt(addedScore * (buffedScoreIncrement + 1.0f));
     }
 }

@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 1000417152}
   - component: {fileID: 1000417153}
   - component: {fileID: 1000417154}
+  - component: {fileID: 1000417155}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -527,6 +528,7 @@ MonoBehaviour:
   spawnObjectList:
   - {fileID: 6718289366717772290, guid: 65f46ebe85327a24a8294ff1135fba72, type: 3}
   - {fileID: 7524633999280715543, guid: f5c7323308d7ae243a68a9687033b2de, type: 3}
+  - {fileID: 1464501969246771773, guid: 041670ba427dad54a82eeec23d5304be, type: 3}
   chanceToSpawn: 10
 --- !u!114 &1000417154
 MonoBehaviour:
@@ -541,6 +543,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactDistance: 0.5
+--- !u!114 &1000417155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000417147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0b0fadee724304ea21858962665e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToPlace: {fileID: 4038903197407884673, guid: d438af5903d8635418dbebec412a360e, type: 3}
 --- !u!1 &1239904909
 GameObject:
   m_ObjectHideFlags: 0
