@@ -6,7 +6,7 @@ using UnityEngine.XR.ARSubsystems;
 
 public class UserInteraction : MonoBehaviour
 {
-    [SerializeField] private float interactDistance = 2f;
+    [SerializeField] protected float interactDistance = 2f;
 
     protected virtual void Update()
     {
