@@ -481,7 +481,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObjectList:
-  - {fileID: 2931794682887212364, guid: 0369d523b962dd24f92d38de1c6efd65, type: 3}
+  - {fileID: 6718289366717772290, guid: 65f46ebe85327a24a8294ff1135fba72, type: 3}
+  - {fileID: 7524633999280715543, guid: f5c7323308d7ae243a68a9687033b2de, type: 3}
   chanceToSpawn: 10
 --- !u!114 &1000417154
 MonoBehaviour:
@@ -495,7 +496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4daee9ae2273f04b97dd3064e340089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reticleObject: {fileID: 0}
   interactDistance: 2
 --- !u!1 &1239904909
 GameObject:
