@@ -21,10 +21,10 @@ public abstract class BaseSpawner : MonoBehaviour
     protected Vector3 GetRandomPointInPlane(ARPlane plane)
     {
         // Generate random offsets within the plane's bounds
-        float randomX = Random.Range(plane.center.x - plane.size.x / 2, plane.size.x / 2);
-        float randomZ = Random.Range(plane.center.z - plane.size.y / 2, plane.size.y / 2);
+        float randomX = Random.Range(-plane.size.x / 2, plane.size.x / 2);
+        float randomZ = Random.Range(-plane.size.y / 2, plane.size.y / 2);
 
         // Return the random position in world space
-        return plane.transform.TransformPoint(new Vector3(randomX, plane.center.y, randomZ));
+        return plane.transform.TransformPoint(new Vector3(randomX, 0, randomZ));
     }
 }

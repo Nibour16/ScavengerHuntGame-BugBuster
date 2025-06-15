@@ -530,7 +530,6 @@ MonoBehaviour:
   - {fileID: 7524633999280715543, guid: f5c7323308d7ae243a68a9687033b2de, type: 3}
   - {fileID: 1464501969246771773, guid: 041670ba427dad54a82eeec23d5304be, type: 3}
   chanceToSpawn: 10
-  spawnInterval: 5
 --- !u!114 &1000417154
 MonoBehaviour:
   m_ObjectHideFlags: 0

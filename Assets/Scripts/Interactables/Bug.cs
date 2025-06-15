@@ -23,6 +23,14 @@ public class Bug : BaseInteractable
 
     protected override void OnDestroy()
     {
+        if (isQuit) return;
+
+        if (gameManager == null)
+        {
+            Debug.Log("gameManager is null");
+            return;
+        }
+
         gameManager.AddScore(bugStat.value);
         Debug.Log(gameManager.score);
         base.OnDestroy();

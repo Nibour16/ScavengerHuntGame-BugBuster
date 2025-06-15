@@ -30,6 +30,14 @@ public class ScoreBuffer : BaseInteractable
 
     protected override void OnDestroy()
     {
+        if (isQuit) return;
+
+        if (_gameManager == null)
+        {
+            Debug.Log("gameManager is null");
+            return;
+        }
+
         _gameManager.buffedScoreIncrement += scoreBufferStat.value;
         Debug.Log("You are buffed, you can get more score from the bugs");
     }
