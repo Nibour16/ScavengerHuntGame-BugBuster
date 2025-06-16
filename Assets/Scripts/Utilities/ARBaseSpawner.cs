@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
 public abstract class ARBaseSpawner : MonoBehaviour
 {
     //List to keep track of objects that will be spawned
-    [SerializeField] protected GameObject[] spawnObjectList;
+    [SerializeField] protected List<GameObject> spawnObjectList;
 
     protected ARPlaneManager arPlaneManager;
 
@@ -15,6 +16,30 @@ public abstract class ARBaseSpawner : MonoBehaviour
 
     protected void RandomPickToSpawn(Vector3 spawnPosition, Quaternion spawnRotation)
     {
+        /*Dictionary<float, List<GameObject>> rarityGroups = new Dictionary<float, List<GameObject>>();
+
+        foreach (var obj in spawnObjectList)
+        {
+            if (!rarityGroups.ContainsKey(obj.GetComponent<BaseInteractable>().stat.rarity))
+            {
+                rarityGroups[obj.GetComponent<BaseInteractable>().stat.rarity] = new List<GameObject>();
+            }
+            rarityGroups[obj.GetComponent<BaseInteractable>().stat.rarity].Add(obj);
+        }
+
+        float lowestRarity = float.MaxValue;
+        foreach (var rarity in rarityGroups.Keys)
+        {
+            if (rarity < lowestRarity)  lowestRarity = rarity;
+        }
+
+        if (rarityGroups.ContainsKey(lowestRarity))
+        {
+            List<GameObject> candidates = rarityGroups[lowestRarity];
+            GameObject selectedObject = candidates[Random.Range(0, candidates.Count)];
+            Instantiate(selectedObject, spawnPosition, spawnRotation);
+        }*/
+
         float totalWeight = 0;
 
         foreach (var obj in spawnObjectList)
