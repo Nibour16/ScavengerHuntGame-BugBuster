@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ScoreBuffer : BaseInteractable
 {
-    [SerializeField] private Stat scoreBufferStat;
+    [SerializeField] private Stat stat;
     
     private GameManager _gameManager;
 
@@ -38,7 +38,7 @@ public class ScoreBuffer : BaseInteractable
             return;
         }
 
-        _gameManager.buffedScoreIncrement += scoreBufferStat.value;
+        _gameManager.buffedScoreIncrement += stat.value;
         Debug.Log("You are buffed, you can get more score from the bugs");
     }
 }

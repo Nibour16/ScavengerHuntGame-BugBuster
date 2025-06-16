@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class UnknownEvent : BaseInteractable
 {
+    [SerializeField] private Stat stat;
+    
     private GameManager _gameManager;
 
     private void Start()
@@ -22,11 +24,11 @@ public class UnknownEvent : BaseInteractable
         switch (randomIndex)
         {
             case 0:
-                TimerSpeedup(0.5f);
+                TimerSpeedup(Random.Range(-30, -9));
                 break;
 
             case 1:
-                TimerSpeedup(1.5f);
+                TimerSpeedup(Random.Range(10, 31));
                 break;
             case 2:
                 Debug.Log("Nothing happens");
@@ -38,13 +40,11 @@ public class UnknownEvent : BaseInteractable
 
     private void TimerSpeedup(float time)
     {
-        if (time < 1)
-        {
-            Debug.Log("timer is slowed down");
-        }
+        if (time < 0)
+            Debug.Log("Hurry up, time runs shortly!");
         else
-        {
-            Debug.Log("timer is sped up");
-        }
+            Debug.Log("So lucky, you get more time because the guest says he will be late");
+
+        _gameManager.OnTimerChanged(time);
     }
 }

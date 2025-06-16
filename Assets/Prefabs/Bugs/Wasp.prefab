@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201ec81911dfcdb43a2b552028d07644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bugStat: {fileID: 11400000, guid: d0d6e410645994547817806b3b925d15, type: 2}
+  stat: {fileID: 11400000, guid: d0d6e410645994547817806b3b925d15, type: 2}
 --- !u!1001 &179205154550802252
 PrefabInstance:
   m_ObjectHideFlags: 0

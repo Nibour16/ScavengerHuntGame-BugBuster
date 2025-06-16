@@ -35,7 +35,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private ARSpawner bugSpawner;
     [SerializeField] private ARTapToPlace arTapToPlace;
+    [SerializeField] private UserInteraction arInteractor;
+
     [SerializeField] private TMP_Text timeText;
+    [SerializeField] private TMP_Text scoreText;
 
     [NonSerialized] public GameState gameState;
     [NonSerialized] public int score;
@@ -52,6 +55,7 @@ public class GameManager : MonoBehaviour
     {
         HandleGameState();
         Timer();
+        DisplayScore();
         SwitchState();
     }
 
@@ -60,15 +64,18 @@ public class GameManager : MonoBehaviour
         if (gameState == GameState.PlaceCoil)
         {
             arTapToPlace.enabled = true;
+            arInteractor.enabled = true;
             bugSpawner.enabled = false;
         }
         else if (gameState == GameState.CatchBugs)
         {
             arTapToPlace.enabled = false;
+            arInteractor.enabled = true;
             bugSpawner.enabled = true;
         }
         else
         {
+            arInteractor.enabled = false;
             arTapToPlace.enabled = false;
             bugSpawner.enabled = false;
         }
@@ -102,6 +109,16 @@ public class GameManager : MonoBehaviour
         } 
     }
 
+    public void AddScore(float addedScore)
+    {
+        score += Mathf.RoundToInt(addedScore * (buffedScoreIncrement + 1.0f));
+    }
+
+    public void OnTimerChanged(float changeAmount)
+    {
+        gameTime += changeAmount;
+    }
+
     private void DisplayTime(float timeToDisplay)
     {
         timeToDisplay++;
@@ -112,9 +129,9 @@ public class GameManager : MonoBehaviour
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    public void AddScore(float addedScore)
+    private void DisplayScore()
     {
-        score += Mathf.RoundToInt(addedScore * (buffedScoreIncrement + 1.0f));
+        scoreText.text = score.ToString();
     }
 
 }

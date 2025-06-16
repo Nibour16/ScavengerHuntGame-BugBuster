@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bug : BaseInteractable
 {
-    [SerializeField] protected Stat bugStat;
+    [SerializeField] protected Stat stat;
 
     protected GameManager gameManager;
     
@@ -31,7 +31,7 @@ public class Bug : BaseInteractable
             return;
         }
 
-        gameManager.AddScore(bugStat.value);
+        gameManager.AddScore(stat.value);
         Debug.Log(gameManager.score);
         base.OnDestroy();
     }
