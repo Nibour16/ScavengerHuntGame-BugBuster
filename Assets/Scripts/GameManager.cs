@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMP_Text timeText;
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text gameOverText;
 
     [NonSerialized] public GameState gameState;
     [NonSerialized] public int score;
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         buffedScoreIncrement = 0;
         gameState = GameState.PlaceCoil;
+        gameOverText.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -78,6 +80,8 @@ public class GameManager : MonoBehaviour
             arInteractor.enabled = false;
             arTapToPlace.enabled = false;
             bugSpawner.enabled = false;
+
+            gameOverText.gameObject.SetActive(true);
         }
     }
 

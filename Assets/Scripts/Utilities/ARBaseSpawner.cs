@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
-public abstract class BaseSpawner : MonoBehaviour
+public abstract class ARBaseSpawner : MonoBehaviour
 {
     //List to keep track of objects that will be spawned
     [SerializeField] protected GameObject[] spawnObjectList;

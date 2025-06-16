@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Bug : BaseInteractable
 {
-    [SerializeField] protected Stat stat;
-
     protected GameManager gameManager;
     
     protected virtual void Start()

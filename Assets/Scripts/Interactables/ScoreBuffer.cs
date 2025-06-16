@@ -1,9 +1,7 @@
 using UnityEngine;
 
 public class ScoreBuffer : BaseInteractable
-{
-    [SerializeField] private Stat stat;
-    
+{    
     private GameManager _gameManager;
 
     private void Start()

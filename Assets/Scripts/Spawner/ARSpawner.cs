@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-public class ARSpawner : BaseSpawner
+public class ARSpawner : ARBaseSpawner
 {
     [SerializeField] private float chanceToSpawn = 50;
     [SerializeField] private float spawnInterval = 3;
