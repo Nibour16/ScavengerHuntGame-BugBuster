@@ -435,11 +435,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb050ab16ea0e8241a4dcd4b7046ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preparationTime: 3
+  preparationTime: 30
   gameTime: 90
   bugSpawner: {fileID: 1000417153}
   arTapToPlace: {fileID: 1000417155}
-  arInteractor: {fileID: 1000417154}
+  arInteractor: {fileID: 1000417156}
+  arTapToSwitchScene: {fileID: 1000417157}
   timeText: {fileID: 1106978971}
   scoreText: {fileID: 265434332}
   gameOverText: {fileID: 1888208211}
@@ -686,8 +687,10 @@ GameObject:
   - component: {fileID: 1000417150}
   - component: {fileID: 1000417152}
   - component: {fileID: 1000417153}
+  - component: {fileID: 1000417156}
   - component: {fileID: 1000417154}
   - component: {fileID: 1000417155}
+  - component: {fileID: 1000417157}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -788,12 +791,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000417147}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 475257e7c7e75504ab62bfbff846d958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactDistance: 0.5
+  interactDistance: 2
 --- !u!114 &1000417155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,6 +810,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPlace: {fileID: 4038903197407884673, guid: d438af5903d8635418dbebec412a360e, type: 3}
+--- !u!114 &1000417156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000417147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4daee9ae2273f04b97dd3064e340089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 2
+--- !u!114 &1000417157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000417147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01868ad93fa867d4cae127143d911c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1106978969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,7 +1278,7 @@ MonoBehaviour:
   m_SendPointerHoverToParent: 1
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
+  m_XRTrackingOrigin: {fileID: 1000417149}
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}

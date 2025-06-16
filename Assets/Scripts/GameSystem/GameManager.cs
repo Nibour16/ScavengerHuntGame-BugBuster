@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
         }
 
         _instance = this;
-        DontDestroyOnLoad(gameObject);
     }
     #endregion
 
@@ -36,6 +35,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ARSpawner bugSpawner;
     [SerializeField] private ARTapToPlace arTapToPlace;
     [SerializeField] private UserInteraction arInteractor;
+    [SerializeField] private ARTapToSwitchScene arTapToSwitchScene;
 
     [SerializeField] private TMP_Text timeText;
     [SerializeField] private TMP_Text scoreText;
@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
         Timer();
         DisplayScore();
         SwitchState();
+
+        if (gameState == GameState.GameOver)
+            arTapToSwitchScene.LoadScene("MainMenu");
     }
 
     private void HandleGameState()
