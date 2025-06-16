@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931b0f0b236c3ce4fbb3e782e3a22c30, type: 3}
   m_Name: FlyStat
   m_EditorClassIdentifier: 
-  value: 25
-  rarity: 10
+  value: 50
+  rarity: 45

@@ -6,7 +6,7 @@ using UnityEngine.XR.ARSubsystems;
 
 public class ARSpawner : ARBaseSpawner
 {
-    [SerializeField] private float chanceToSpawn = 50;
+    [SerializeField] private float chanceToSpawn = 25;
     [SerializeField] private float spawnInterval = 3;
 
     private float _spawnChance;
@@ -52,7 +52,7 @@ public class ARSpawner : ARBaseSpawner
                 }
             }
 
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds((int)UnityEngine.Random.Range(spawnInterval * 0.75f, spawnInterval * 1.25f));
             _isWaiting = false;
         }
         else

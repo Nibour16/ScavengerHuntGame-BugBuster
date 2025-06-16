@@ -5,7 +5,13 @@ public abstract class BaseInteractable : MonoBehaviour, IInteractable
     public Stat stat;
 
     protected bool isQuit = false;
-    
+
+    protected GameManager gameManager;
+
+    protected virtual void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
     public virtual void OnInteract(Vector3 interactPosition) 
     {
         Debug.Log("Hey, what's up?");

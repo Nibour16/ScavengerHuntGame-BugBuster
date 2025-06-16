@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class UnknownEvent : BaseInteractable
 {    
-    private GameManager _gameManager;
-
-    private void Start()
-    {
-        _gameManager = GameManager.Instance;
-    }
-
     private void Update()
     {
         if (Camera.main != null)
@@ -43,6 +36,6 @@ public class UnknownEvent : BaseInteractable
         else
             Debug.Log("So lucky, you get more time because the guest says he will be late");
 
-        _gameManager.OnTimerChanged(time);
+        gameManager.OnTimerChanged(time);
     }
 }

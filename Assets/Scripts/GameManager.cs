@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(float addedScore)
     {
-        score += Mathf.RoundToInt(addedScore * (buffedScoreIncrement + 1.0f));
+        score += Mathf.RoundToInt(addedScore * Mathf.Max((buffedScoreIncrement + 100f)/100f, 0));
     }
 
     public void OnTimerChanged(float changeAmount)

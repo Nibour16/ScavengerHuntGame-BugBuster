@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931b0f0b236c3ce4fbb3e782e3a22c30, type: 3}
   m_Name: WaspStat
   m_EditorClassIdentifier: 
-  value: 50
-  rarity: 15
+  value: 250
+  rarity: 5

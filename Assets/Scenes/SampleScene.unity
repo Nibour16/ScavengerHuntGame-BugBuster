@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preparationTime: 3
-  gameTime: 120
+  gameTime: 90
   bugSpawner: {fileID: 1000417153}
   arTapToPlace: {fileID: 1000417155}
   arInteractor: {fileID: 1000417154}
@@ -774,10 +774,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObjectList:
-  - {fileID: 6718289366717772290, guid: 65f46ebe85327a24a8294ff1135fba72, type: 3}
   - {fileID: 7524633999280715543, guid: f5c7323308d7ae243a68a9687033b2de, type: 3}
+  - {fileID: 6718289366717772290, guid: 65f46ebe85327a24a8294ff1135fba72, type: 3}
   - {fileID: 1464501969246771773, guid: 041670ba427dad54a82eeec23d5304be, type: 3}
   - {fileID: 3961290125689158657, guid: e3eeeae3f07b8d545b2a321bbc96baad, type: 3}
+  - {fileID: 9064627463344302352, guid: 5cffc0aa90308104e8c78f154f536d98, type: 3}
   chanceToSpawn: 10
   spawnInterval: 5
 --- !u!114 &1000417154

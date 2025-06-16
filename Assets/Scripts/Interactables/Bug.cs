@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class Bug : BaseInteractable
 {
-    protected GameManager gameManager;
-    
-    protected virtual void Start()
-    {
-        gameManager = GameManager.Instance;
-    }
-
     public override void OnInteract(Vector3 interactPosition)
     {
         if (gameManager == null)
