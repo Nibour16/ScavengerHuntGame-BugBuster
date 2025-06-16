@@ -1,49 +1,61 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
 public class ARSpawner : BaseSpawner
 {
     [SerializeField] private float chanceToSpawn = 50;
+    [SerializeField] private float spawnInterval = 3;
 
     private float _spawnChance;
+    private bool _hasRunStart = false;
+    private bool _isWaiting = false;
 
-    [Obsolete("planesChanged (Why is it obsolete?)")]
-    #pragma warning disable CS0809 // Obsolete member overrides non-obsolete member (or what else can I do for assigning specific one as obsolete)
-    protected override void Start()
-    #pragma warning restore CS0809 // Obsolete member overrides non-obsolete member (or what else can I do for assigning specific one as obsolete)
+    private void Update()
     {
-        base.Start();
-        if (_arPlaneManager != null)
-            _arPlaneManager.planesChanged += OnPlanesChanged;
-    }
-
-    [Obsolete("ARPlanesChangedEventArgs (Why is it obsolete?)")]
-    private void OnPlanesChanged(ARPlanesChangedEventArgs args)
-    {
-        foreach (ARPlane plane in args.added)
-            SpawnObject(plane);
-    }
-
-    private void SpawnObject(ARPlane plane)
-    {
-        _spawnChance = UnityEngine.Random.Range(0, 100);
-
-        if (_spawnChance < chanceToSpawn)
+        if (!_hasRunStart)
         {
-            RandomPickToSpawn
-            (
-                GetRandomPointInPlane(plane),
-                Quaternion.Euler(plane.transform.rotation.x, UnityEngine.Random.Range(-180, 180), plane.transform.rotation.z)
-            );
+            base.Start();
+            _hasRunStart = true;
         }
+
+        if (arPlaneManager == null)
+        {
+            Debug.LogError("ARPlaneManager not found in the scene.");
+            return;
+        }
+
+        if (!_isWaiting)
+            StartCoroutine(SpawnObject());
     }
 
-    [Obsolete("planesChanged (Why is it obsolete?)")]
-    private void OnDestroy()
+    IEnumerator SpawnObject()
     {
-        // Unsubscribe to avoid memory leaks
-        if (_arPlaneManager != null)
-            _arPlaneManager.planesChanged -= OnPlanesChanged;
+        if (arPlaneManager.trackables.count > 0)
+        {
+            _isWaiting = true;
+
+            foreach (ARPlane plane in arPlaneManager.trackables)
+            {
+                _spawnChance = UnityEngine.Random.Range(0, 100);
+
+                if (_spawnChance < chanceToSpawn)
+                {
+                    RandomPickToSpawn
+                    (
+                        GetRandomPointInPlane(plane),
+                        Quaternion.Euler(plane.transform.rotation.x, UnityEngine.Random.Range(-180, 180), plane.transform.rotation.z)
+                    );
+                    break;
+                }
+            }
+
+            yield return new WaitForSeconds(spawnInterval);
+            _isWaiting = false;
+        }
+        else
+            yield return new WaitForSeconds(0);
     }
 }

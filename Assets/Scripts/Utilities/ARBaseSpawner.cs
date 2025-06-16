@@ -6,11 +6,11 @@ public abstract class BaseSpawner : MonoBehaviour
     //List to keep track of objects that will be spawned
     [SerializeField] protected GameObject[] spawnObjectList;
 
-    protected ARPlaneManager _arPlaneManager;
+    protected ARPlaneManager arPlaneManager;
 
     protected virtual void Start()
     {
-        _arPlaneManager = GetComponent<ARPlaneManager>();
+        arPlaneManager = GetComponent<ARPlaneManager>();
     }
 
     protected GameObject RandomPickToSpawn(Vector3 spawnPosition, Quaternion spawnRotation)
