@@ -43,11 +43,12 @@ public class ARSpawner : ARBaseSpawner
 
                 if (_spawnChance < chanceToSpawn)
                 {
-                    RandomPickToSpawn
+                    var spawnedObject = RandomPickToSpawn
                     (
                         GetRandomPointInPlane(plane),
-                        Quaternion.Euler(plane.transform.rotation.x, UnityEngine.Random.Range(-180, 180), plane.transform.rotation.z)
+                        Quaternion.Euler(0, UnityEngine.Random.Range(-180, 180), 0)
                     );
+                    spawnedObject.transform.up = plane.transform.up;
                     break;
                 }
             }

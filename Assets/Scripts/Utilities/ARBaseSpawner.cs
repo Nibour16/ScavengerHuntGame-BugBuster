@@ -14,7 +14,7 @@ public abstract class ARBaseSpawner : MonoBehaviour
         arPlaneManager = GetComponent<ARPlaneManager>();
     }
 
-    protected void RandomPickToSpawn(Vector3 spawnPosition, Quaternion spawnRotation)
+    protected GameObject RandomPickToSpawn(Vector3 spawnPosition, Quaternion spawnRotation)
     {
         /*Dictionary<float, List<GameObject>> rarityGroups = new Dictionary<float, List<GameObject>>();
 
@@ -51,11 +51,12 @@ public abstract class ARBaseSpawner : MonoBehaviour
         {
             if (randomValue < obj.GetComponent<BaseInteractable>().stat.rarity)
             {
-                Instantiate(obj, spawnPosition, spawnRotation);
-                return;
+                return Instantiate(obj, spawnPosition, spawnRotation);
             }
             randomValue -= obj.GetComponent<BaseInteractable>().stat.rarity;
         }
+
+        return Instantiate(spawnObjectList[0], spawnPosition, spawnRotation);
     }
 
     protected Vector3 GetRandomPointInPlane(ARPlane plane)

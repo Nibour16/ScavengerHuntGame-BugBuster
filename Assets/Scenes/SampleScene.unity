@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb050ab16ea0e8241a4dcd4b7046ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preparationTime: 30
+  preparationTime: 2
   gameTime: 90
   bugSpawner: {fileID: 1000417153}
   arTapToPlace: {fileID: 1000417155}
