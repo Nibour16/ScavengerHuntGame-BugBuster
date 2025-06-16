@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ScoreBuffStat
   m_EditorClassIdentifier: 
   value: 0.5
-  rarity: 25
+  rarity: 10
